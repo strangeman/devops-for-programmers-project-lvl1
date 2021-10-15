@@ -1,0 +1,7 @@
+services:
+  app:
+    volumes:
+      - ./app:/app
+    # access from localhost
+    ports:
+      - 8080:8080
