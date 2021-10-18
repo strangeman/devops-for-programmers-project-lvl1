@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - main
 
 env:
   IMAGE_NAME: strangeman/devops-for-programmers-project-lvl1
