@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  APP_IMAGE_NAME: hexletbasics/services-app
+  APP_IMAGE_NAME: strangeman/devops-for-programmers-project-lvl1
   BUILDKIT_INLINE_CACHE: 1
   COMPOSE_DOCKER_CLI_BUILD: 1
   DOCKER_BUILDKIT: 1
