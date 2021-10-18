@@ -7,3 +7,14 @@ services:
       dockerfile: Dockerfile.production
     image:  strangeman/devops-for-programmers-project-lvl1:latest
     command: npm test
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - app
