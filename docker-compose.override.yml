@@ -1,8 +1,16 @@
 services:
   app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image:  strangeman/devops-for-programmers-project-lvl1:local-dev
+    ports:
+      - "8080:8080"
     volumes:
       - ./app:/app
-    # access from localhost
-    ports:
-      - 8080:8080
     command: npm start
+
+  caddy:
+    ports:
+      - "80:80"
+      - "443:443"
