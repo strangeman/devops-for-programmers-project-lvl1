@@ -7,6 +7,9 @@ services:
       dockerfile: Dockerfile.production
     image:  strangeman/devops-for-programmers-project-lvl1:latest
     command: npm test
+    env_file: .env
+    depends_on:
+      - db
 
   caddy:
     image: caddy:2
@@ -18,3 +21,7 @@ services:
       - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile
     depends_on:
       - app
+
+  db:
+    image: postgres:14
+    env_file: .env
