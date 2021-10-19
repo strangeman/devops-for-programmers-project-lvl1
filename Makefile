@@ -14,6 +14,8 @@ run-dev: build-dev
 	# todo: add run development docker-compose
 
 test: 
+	cp .env.example .env
 	docker-compose -f docker-compose.yml up --abort-on-container-exit
+	rm .env
 
 ci: test
