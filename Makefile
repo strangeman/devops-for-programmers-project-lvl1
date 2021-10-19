@@ -2,16 +2,18 @@ build:
 	docker-compose -f docker-compose.yml build app
 
 build-dev:
-	# todo: add build from local dockerfile
+# by default, docker-compose will merge main and override files
+	docker-compose build app
 
 push: build
 	docker-compose -f docker-compose.yml push app
 
 run:
-	# todo: add run production docker-compose
+	docker-compose -f docker-compose.yml up
 
 run-dev: build-dev
-	# todo: add run development docker-compose
+# by default, docker-compose will merge main and override files
+	docker-compose up
 
 test: 
 	cp .env.example .env
