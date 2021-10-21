@@ -17,5 +17,5 @@ run-dev: build-dev
 
 ci: 
 	[ ! -f .env ] && cp .env.example .env || true
-	docker-compose --env-file .env -f docker-compose.yml up --abort-on-container-exit
-#	rm .env
+	docker-compose -f docker-compose.yml up --abort-on-container-exit
+	rm .env
