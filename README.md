@@ -14,8 +14,7 @@ All commands have shortcuts in `Makefile`:
 * `make push` - build production image from `Dockerfile.production` and push it to Docker Hub with `strangeman/devops-for-programmers-project-lvl1:latest` name
 * `make run` - launch production docker-compose file
 * `make run-dev` - launch  docker-compose file with overrides for local development
-* `make ci` - prepare env (currently has no effect) and run tests
-* `make test` - same as `make ci`
+* `make ci` - prepare env and run tests
 
 ## Components
 
@@ -31,7 +30,7 @@ In development mode, Caddy exposes 80 and 443 HTTP ports and Fastify exposes 808
 
 ## Configuration
 
-All settings configured via `.env.example` file. There is known bug: parameters should be set directly in `.env.example` file instead of copying it to `.env`. This is caused by specific behaviour of `hexlet-check` CI pipeline.
+All settings configured via `.env` file. Example options stored in `.env.example`. If `.env` doesn't exists - it will be copied from `.env.example`.
 
 ## Docker image
 

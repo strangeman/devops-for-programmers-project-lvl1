@@ -15,9 +15,7 @@ run-dev: build-dev
 # by default, docker-compose will merge main and override files
 	docker-compose up
 
-test: 
-	cp .env.example .env
-	docker-compose -f docker-compose.yml up --abort-on-container-exit
-	rm .env
-
-ci: test
+ci: 
+	[ ! -f .env ] && cp .env.example .env || true
+	docker-compose --env-file .env -f docker-compose.yml up --abort-on-container-exit
+#	rm .env
