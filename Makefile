@@ -1,3 +1,6 @@
+prepare-env:
+	cp -n .env.example .env || true
+
 build:
 	docker-compose -f docker-compose.yml build app
 
@@ -8,14 +11,13 @@ build-dev:
 push: build
 	docker-compose -f docker-compose.yml push app
 
-run:
+run: prepare-env
 	docker-compose -f docker-compose.yml up
 
-run-dev: build-dev
+run-dev: prepare-env build-dev
 # by default, docker-compose will merge main and override files
 	docker-compose up
 
-ci: 
-	[ ! -f .env ] && cp .env.example .env || true
+ci: prepare-env
 	docker-compose -f docker-compose.yml up --abort-on-container-exit
 	rm .env
