@@ -7,6 +7,11 @@ services:
       dockerfile: Dockerfile.production
     image:  strangeman/devops-for-programmers-project-lvl1:latest
     command: npm test
+    environment:
+        - DATABASE_USERNAME=${DATABASE_USERNAME}
+        - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+        - DATABASE_NAME=${DATABASE_NAME}
+        - DATABASE_HOST=${DATABASE_HOST}
     depends_on:
       db:
         condition: service_healthy
